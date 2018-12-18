@@ -15,6 +15,7 @@
        currentSong: album.songs[0],
        currentTime: 0,
        duration: album.songs[0].duration,
+       currentVolume: 0.5,
        isPlaying: false,
        isHovering: null
      };
@@ -121,7 +122,23 @@ playOrPauseIcon(song, index){
     this.setState({ currentTime: newTime });
   }
 
+  handleVolumeChange(e) {
+     const newVolume = e.target.value;
+     this.audioElement.volume = newVolume;
+     this.setState({ volume: newVolume });
+   }
 
+  formatTime(time) {
+     let minutes = Math.floor(time / 60);
+     let seconds = Math.floor(time - minutes * 60);
+     if(seconds <= 9) {
+       return minutes + ":0" + seconds;
+     } else if(seconds > 9) {
+       return minutes + ":" + seconds;
+     } else {
+       return "-:--"
+     }
+  }
 
 
    render() {
@@ -166,6 +183,8 @@ playOrPauseIcon(song, index){
            handlePrevClick={() => this.handlePrevClick()}
            handleNextClick={() => this.handleNextClick()}
            handleTimeChange={(e) => this.handleTimeChange(e)}
+           handleVolumeChange={ (e) => this.handleVolumeChange(e) }
+           formatTime={ (time) => this.formatTime(time) }
          />
        </section>
      );
