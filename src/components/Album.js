@@ -166,7 +166,7 @@ playOrPauseIcon(song, index){
               onMouseEnter={ () => this.handleMouseEnter(index) }
               onMouseLeave={ () => this.handleMouseLeave(index) }
               >
-                  <td>{this.playOrPauseIcon(song,index)}</td>
+                  <td className="badge badge-secondary">{this.playOrPauseIcon(song,index)}</td>
                   <td>{song.title}</td>
                   <td>{song.duration}</td>
               </tr>
