@@ -72,33 +72,30 @@
  }
 
  handleMouseEnter(index) {
-       this.setState({ isHovering: index });
-   }
+    this.setState({ isHovering: index });
+ }
 
 handleMouseLeave(index) {
-       this.setState({ isHovering: null });
+    this.setState({ isHovering: null });
 }
 
 playOrPauseIcon(song, index){
-    const isSameSong = this.state.currentSong === song;
-    if(this.state.isPlaying && isSameSong){
-      return(
-        <td><button><span className="icon ion-md-pause"></span></button></td>
-      );
-    } else if(!(this.state.isPlaying) && isSameSong){
-      return(
-        <td><button><span className="icon ion-md-play"></span></button></td>
-      );
-    } else if(this.state.isHovering === index){
-      return(
-        <td><button><span className="icon ion-md-play"></span></button></td>
-      );
-    } else {
-        return(
-          <td>{ index+1}</td>
-        );
-      }
-    }
+  const isSameSong = this.state.currentSong === song;
+
+  if(this.state.isPlaying && isSameSong){
+    return(
+      <td><button><span className="icon ion-md-pause"></span></button></td>
+    );
+  } else if(this.state.isHovering === index){
+    return(
+      <td><button><span className="icon ion-md-play"></span></button></td>
+    );
+  }
+
+  return(
+    <td>{ index+1 }</td>
+  );
+}
 
   handlePrevClick() {
       const currentIndex = this.state.album.songs.findIndex(song => this.state.currentSong === song);
