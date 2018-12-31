@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-image: url(./../src/blur_bg_3.jpg);
 }
 
 .App-logo {
@@ -29,6 +30,10 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.flexcontainer {
+   display: flex;
 }
 
 #song-list {

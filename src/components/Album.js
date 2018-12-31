@@ -91,10 +91,10 @@ playOrPauseIcon(song, index){
       <td><button><span className="icon ion-md-play"></span></button></td>
     );
   }
-
   return(
     <td>{ index+1 }</td>
   );
+
 }
 
   handlePrevClick() {
@@ -141,14 +141,14 @@ playOrPauseIcon(song, index){
    render() {
      return (
        <section className="album">
-          <section id="album-info">
-            <img id="album-cover-art" src={this.state.album.albumCover} alt={this.state.album.title}/>
-            <div className="album-details">
-              <h1 id="album-title">{this.state.album.title}</h1>
-              <h2 className="artist">{this.state.album.artist}</h2>
+          <section id="card">
+            <img className="card-img-top" src={this.state.album.albumCover} alt={this.state.album.title}/>
+            <div className="card-body">
+              <h1 className="card-title">{this.state.album.title}</h1>
+              <h2 className="card-text">{this.state.album.artist}</h2>
               <div id="release-info">{this.state.album.releaseInfo}</div>
             </div>
-         </section>
+          </section>
          <table id="song-list">
            <colgroup>
              <col id="song-number-column" />
@@ -165,7 +165,7 @@ playOrPauseIcon(song, index){
               >
                   <td className="badge badge-secondary">{this.playOrPauseIcon(song,index)}</td>
                   <td>{song.title}</td>
-                  <td>{song.duration}</td>
+                  <td>{this.formatTime(song.duration)}</td>
               </tr>
              ))
             }

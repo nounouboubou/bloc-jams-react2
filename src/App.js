@@ -11,7 +11,7 @@ class App extends Component {
       <div className="App">
       <header>
           <nav className="alert alert-primary" >
-            <Link className="alert-link" to='/'>Landing</Link>
+            <Link className="alert-link" to='/'><Link to='/'><img src="./../assets/images/bloc_jams_logo.png" alt="Bloc Jams Landing" /></Link></Link>
             <Link className="alert-link" to='/library'>Library</Link>
          </nav>
          <h1>Bloc Jams</h1>

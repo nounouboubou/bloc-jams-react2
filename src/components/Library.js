@@ -10,14 +10,16 @@
 
    render() {
     return (
-      <section className='library'>
+      <section className="flexcontainer">
         {
           this.state.albums.map( (album, index) =>
             <Link to={`/album/${album.slug}`} key={index}>
-              <img src={album.albumCover} alt={album.title} />
-              <div>{album.title}</div>
-              <div>{album.artist}</div>
-              <div>{album.songs.length} songs</div>
+              <section className="card">
+              <img className="card-img-top" src={album.albumCover} alt={album.title} />
+              <div className="card-title">{album.title}</div>
+              <div className="card-text">{album.artist}</div>
+              <div className="card-text">{album.songs.length} songs</div>
+              </section>
             </Link>
           )
         }
