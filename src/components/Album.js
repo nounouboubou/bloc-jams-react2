@@ -140,51 +140,51 @@ playOrPauseIcon(song, index){
 
    render() {
      return (
-       <section className="album">
-          <section id="card">
-            <img className="card-img-top" src={this.state.album.albumCover} alt={this.state.album.title}/>
+       <section>
+          <section className="container">
+            <img className="resize" src={this.state.album.albumCover} alt={this.state.album.title}/>
             <div className="card-body">
               <h1 className="card-title">{this.state.album.title}</h1>
               <h2 className="card-text">{this.state.album.artist}</h2>
               <div id="release-info">{this.state.album.releaseInfo}</div>
             </div>
           </section>
-         <table id="song-list">
-           <colgroup>
-             <col id="song-number-column" />
-             <col id="song-title-column" />
-             <col id="song-duration-column" />
-           </colgroup>
-           <tbody>
-            {
-             this.state.album.songs.map((song, index) => (
-              <tr className="song" key={index}
-              onClick={() => this.handleSongClick(song)}
-              onMouseEnter={ () => this.handleMouseEnter(index) }
-              onMouseLeave={ () => this.handleMouseLeave(index) }
-              >
-                  <td className="badge badge-secondary">{this.playOrPauseIcon(song,index)}</td>
-                  <td>{song.title}</td>
-                  <td>{this.formatTime(song.duration)}</td>
-              </tr>
-             ))
-            }
-           </tbody>
-         </table>
-         <PlayerBar
-           isPlaying={this.state.isPlaying}
-           currentSong={this.state.currentSong}
-           currentTime={this.audioElement.currentTime}
-           duration={this.audioElement.duration}
-           handleSongClick={() => this.handleSongClick(this.state.currentSong)}
-           handlePrevClick={() => this.handlePrevClick()}
-           handleNextClick={() => this.handleNextClick()}
-           handleTimeChange={(e) => this.handleTimeChange(e)}
-           handleVolumeChange={ (e) => this.handleVolumeChange(e) }
-           formatTime={ (time) => this.formatTime(time) }
-         />
-       </section>
-     );
-   }
- }
-export default Album;
+          <table id="song-list">
+            <colgroup>
+              <col id="song-number-column" />
+              <col id="song-title-column" />
+              <col id="song-duration-column" />
+            </colgroup>
+            <tbody>
+             {
+              this.state.album.songs.map((song, index) => (
+               <tr className="song" key={index}
+               onClick={() => this.handleSongClick(song)}
+               onMouseEnter={ () => this.handleMouseEnter(index) }
+               onMouseLeave={ () => this.handleMouseLeave(index) }
+               >
+                   <td className="badge badge-secondary">{this.playOrPauseIcon(song,index)}</td>
+                   <td>{song.title}</td>
+                   <td>{this.formatTime(song.duration)}</td>
+               </tr>
+              ))
+             }
+            </tbody>
+          </table>
+          <PlayerBar
+            isPlaying={this.state.isPlaying}
+            currentSong={this.state.currentSong}
+            currentTime={this.audioElement.currentTime}
+            duration={this.audioElement.duration}
+            handleSongClick={() => this.handleSongClick(this.state.currentSong)}
+            handlePrevClick={() => this.handlePrevClick()}
+            handleNextClick={() => this.handleNextClick()}
+            handleTimeChange={(e) => this.handleTimeChange(e)}
+            handleVolumeChange={ (e) => this.handleVolumeChange(e) }
+            formatTime={ (time) => this.formatTime(time) }
+          />
+        </section>
+      );
+    }
+  }
+ export default Album;

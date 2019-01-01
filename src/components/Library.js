@@ -18,7 +18,7 @@
               <img className="card-img-top" src={album.albumCover} alt={album.title} />
               <div className="card-title">{album.title}</div>
               <div className="card-text">{album.artist}</div>
-              <div className="card-text">{album.songs.length} songs</div>
+              <div>{album.songs.length} songs</div>
               </section>
             </Link>
           )
